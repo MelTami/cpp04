@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 20:52:51 by mvavasso          #+#    #+#             */
-/*   Updated: 2024/05/09 21:26:26 by mvavasso         ###   ########.fr       */
+/*   Created: 2024/05/09 20:59:08 by mvavasso          #+#    #+#             */
+/*   Updated: 2024/05/09 21:08:01 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-#include "Animal.hpp"
+#include <string>
 #include <iostream>
 
-class Dog : public Animal
+class WrongAnimal
 {
-public:
-    Dog( void );
-    Dog(Dog const &Dog_to_copy);
-    Dog& operator=(Dog const &Dog_to_copy);
-    ~Dog( void );
+protected:
+    std::string type;
 
+public:
+    WrongAnimal( void );
+    WrongAnimal(std::string const type);
+    WrongAnimal(WrongAnimal const &WrongAnimal_to_copy);
+    WrongAnimal& operator=(WrongAnimal const &WrongAnimal_to_copy);
+    virtual ~WrongAnimal( void );
+
+    std::string getType( void ) const;
     void makeSound( void ) const;
 };
 
