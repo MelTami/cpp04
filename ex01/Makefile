@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/09 20:52:03 by mvavasso          #+#    #+#              #
-#    Updated: 2024/05/09 22:35:04 by mvavasso         ###   ########.fr        #
+#    Updated: 2024/05/09 20:57:08 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,7 @@ NAME	= Animal
 SRCS	= main.cpp\
  		Animal.cpp\
 		Cat.cpp\
-		Dog.cpp\
-		WrongAnimal.cpp\
-		WrongCat.cpp
+		Dog.cpp
 OBJS		= $(addprefix objects/, $(notdir $(SRCS:.cpp=.o)))
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98
 CC			= c++
