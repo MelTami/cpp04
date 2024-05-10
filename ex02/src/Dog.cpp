@@ -6,13 +6,13 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 20:52:48 by mvavasso          #+#    #+#             */
-/*   Updated: 2024/05/10 15:54:56 by mvavasso         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:02:46 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Dog.hpp"
 
-Dog::Dog() : Animal() {
+Dog::Dog() : AAnimal() {
 	setType("Dog");
 	std::cout << GREEN << type << " default constructor" << RESET << std::endl;
 	brain = new Brain();
@@ -44,5 +44,5 @@ Dog& Dog::operator=(const Dog& rhs) {
 }
 
 Brain* Dog::getBrain(void) const {
-	return brain;
+	return brain;;
 }
