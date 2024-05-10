@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 20:52:41 by mvavasso          #+#    #+#             */
-/*   Updated: 2024/05/09 21:26:04 by mvavasso         ###   ########.fr       */
+/*   Created: 2024/05/10 14:01:05 by mvavasso          #+#    #+#             */
+/*   Updated: 2024/05/10 15:40:12 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-#include <string>
+#include "Colors.hpp"
 #include <iostream>
 
-class Animal
-{
-protected:
-    std::string type;
-
-public:
-    Animal( void );
-    Animal(std::string const type);
-    Animal(Animal const &animal_to_copy);
-    Animal& operator=(Animal const &animal_to_copy);
-    virtual ~Animal( void );
-
-    std::string getType( void ) const;
-    virtual void makeSound( void ) const;
+class Brain {
+	private:
+		std::string ideas[100];
+	public:
+		Brain(void);
+		Brain(const Brain& rhs);
+		~Brain(void);
+		Brain& operator=(const Brain& rhs);
+		
+		void setIdea(unsigned int i, std::string Idea);
+		std::string getIdea(unsigned int i) const;
 };
 
 #endif

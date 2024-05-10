@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 20:59:08 by mvavasso          #+#    #+#             */
-/*   Updated: 2024/05/09 21:08:01 by mvavasso         ###   ########.fr       */
+/*   Created: 2024/05/09 21:23:23 by mvavasso          #+#    #+#             */
+/*   Updated: 2024/05/10 14:25:33 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef WRONG_CAT_HPP
+# define WRONG_CAT_HPP
 
-#include <string>
+#include "WrongAnimal.hpp"
 #include <iostream>
 
-class WrongAnimal
+class WrongCat : public WrongAnimal
 {
-protected:
-    std::string type;
-
 public:
-    WrongAnimal( void );
-    WrongAnimal(std::string const type);
-    WrongAnimal(WrongAnimal const &WrongAnimal_to_copy);
-    WrongAnimal& operator=(WrongAnimal const &WrongAnimal_to_copy);
-    virtual ~WrongAnimal( void );
+    WrongCat( void );
+    WrongCat( WrongCat const & WrongCat_to_copy);
+    WrongCat& operator=( WrongCat const & WrongCat_to_copy);
+    ~ WrongCat( void );
 
-    std::string getType( void ) const;
     void makeSound( void ) const;
 };
 

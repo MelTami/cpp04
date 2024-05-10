@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Colors.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 21:23:23 by mvavasso          #+#    #+#             */
-/*   Updated: 2024/05/09 21:23:25 by mvavasso         ###   ########.fr       */
+/*   Created: 2024/05/10 14:45:11 by mvavasso          #+#    #+#             */
+/*   Updated: 2024/05/10 14:45:13 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONG_CAT_HPP
-# define WRONG_CAT_HPP
+#ifndef COLORS_HPP
+# define COLORS_HPP
 
-#include "WrongAnimal.hpp"
-#include <iostream>
-
-class WrongCat : public WrongAnimal
-{
-public:
-    WrongCat( void );
-    WrongCat( WrongCat const & WrongCat_to_copy);
-    WrongCat& operator=( WrongCat const & WrongCat_to_copy);
-    ~ WrongCat( void );
-
-    void makeSound( void ) const;
-};
+# define RESET "\033[0m"
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
+# define MAGENTA "\033[35m"
 
 #endif

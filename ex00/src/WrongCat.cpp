@@ -6,36 +6,31 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 21:23:33 by mvavasso          #+#    #+#             */
-/*   Updated: 2024/05/09 22:40:04 by mvavasso         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:00:29 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "WrongCat.hpp"
+#include "../includes/WrongCat.hpp"
 
-WrongCat::WrongCat( void ) : WrongAnimal("WrongCat")
-{ 
-	std::cout << "WrongCat default constructor called" << std::endl;
+WrongCat::WrongCat() {
+	std::cout << GREEN << "WrongCat Default constructor called" << RESET << std::endl;
 }
-		
-WrongCat::WrongCat(WrongCat const &wrongcat_to_copy) : WrongAnimal(wrongcat_to_copy.getType())
-{
-	*this = wrongcat_to_copy;
-}
-
-WrongCat	&WrongCat::operator=(WrongCat const &wrongCat_to_copy)
-{
-	if (this == &wrongCat_to_copy)
-		return (*this);
-	return (*this);
-}
-
-WrongCat::~WrongCat( void )
-{ 
-	std::cout << "WrongCat default destructor called" << std::endl;
-}
+WrongCat::WrongCat(const WrongCat& rhs){
+	std::cout << YELLOW << "WrongCat copied" << RESET << std::endl;
+	*this = rhs;
+};
+WrongCat::~WrongCat(void){
+	std::cout << RED << "WrongCat destroyed" << RESET << std::endl;
+};
+WrongCat& WrongCat::operator=(const WrongCat& rhs) {
+	if(this != &rhs) {
+		type = rhs.type;
+	}
+	return *this;
+};
 
 void  WrongCat::makeSound( void ) const
 {
-	std::cout << "Miau Miau😺!" << std::endl;
+	std::cout << RED << "Miau Miau😺!" << std::endl;
 }

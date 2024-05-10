@@ -6,45 +6,37 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 20:52:37 by mvavasso          #+#    #+#             */
-/*   Updated: 2024/05/09 21:25:35 by mvavasso         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:00:03 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../includes/Animal.hpp"
 
-Animal::Animal( void ) : type("Unknown")
-{ 
-	std::cout << "Animal default constructor called" << std::endl;
-}
-		
-Animal::Animal(std::string const type) : type(type) 
-{
-	std::cout << type << " Type animal default constructor called" << std::endl;
-} 
+Animal::Animal() {
+	std::cout << GREEN << "Animal constructor called" << RESET << std::endl;
+};
+Animal::Animal(const Animal& rhs){
+	std::cout << YELLOW << "Animal copied" << RESET << std::endl;
+	*this = rhs;
+};
+Animal::~Animal(void){
+	std::cout << RED << "Animal destroyed" << RESET << std::endl;
+};
+Animal& Animal::operator=(const Animal& rhs) {
+	if(this != &rhs) {
+		type = rhs.type;
+	}
+	return *this;
+};
 
-Animal::Animal(Animal const &animal_to_copy)
-{
-	*this = animal_to_copy;
-}
-
-Animal& Animal::operator=(Animal const &animal_to_copy)
-{
-	if (this == &animal_to_copy)
-		return (*this);
-	return (*this);
-}
-
-std::string	Animal::getType( void ) const
-{
-	return (this->type);
+void Animal::makeSound(void) const{
+	std::cout << "Bonk!" << std::endl;
 }
 
-void Animal::makeSound(void) const
-{
-	std::cout << "An animal sound..." << std::endl;
+std::string Animal::getType() const{
+	return type;
 }
 
-Animal::~Animal( void ) 
-{
-	std::cout << this->type << " type animal default destructor called" << std::endl;
+void Animal::setType(std::string _type){
+	type = _type;
 }

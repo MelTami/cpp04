@@ -6,40 +6,35 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/09 20:52:03 by mvavasso          #+#    #+#              #
-#    Updated: 2024/05/09 20:57:08 by mvavasso         ###   ########.fr        #
+#    Updated: 2024/05/10 15:27:45 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME	= Animal
-SRCS	= main.cpp\
- 		Animal.cpp\
-		Cat.cpp\
-		Dog.cpp
-OBJS		= $(addprefix objects/, $(notdir $(SRCS:.cpp=.o)))
-FLAGS		= -Wall -Wextra -Werror -g -std=c++98
-CC			= c++
+NAME=Farm
+ECHO=echo
+YELLOW=\033[1;33m
+GREEN=\033[1;32m
+RED=\033[0;31m
+RESET=\033[0m
 
-all: $(NAME)
 
-$(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(FLAGS) -o $(NAME)
-	
-objects:
-	@mkdir -p objects
+SOURCES= $(addprefix ./src/,\
+	main.cpp\
+	Dog.cpp\
+	Cat.cpp\
+	Animal.cpp\
+	Brain.cpp)
 
-objects/%.o: %.cpp | objects
-	@$(CC) $(FLAGS) -c $< -o $@
+${NAME}: ${SOURCES}
+	@${ECHO} "${YELLOW}Compiling $@...${RESET}"
+	@c++ -Wall -Wextra -Werror -std=c++98 -I include ${SOURCES} -o $@
+	@${ECHO} "${GREEN}Compiled!${RESET}"
 
-run: all
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
+fclean:
+	@rm -fr ${NAME}
+	@${ECHO} "${RED}Files removed!${RESET}"
 
-clean: 
-		@rm -rf objects
+re: fclean ${NAME}
 
-fclean: clean
-		@rm -f $(NAME)
-
-re: fclean all
-
-.PHONY: all clean fclean re
+.PHONY: fclean re

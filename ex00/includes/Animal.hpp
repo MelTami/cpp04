@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 20:52:41 by mvavasso          #+#    #+#             */
-/*   Updated: 2024/05/09 21:26:04 by mvavasso         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:50:32 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include "Colors.hpp"
 
 class Animal
 {
@@ -22,14 +23,14 @@ protected:
     std::string type;
 
 public:
-    Animal( void );
-    Animal(std::string const type);
-    Animal(Animal const &animal_to_copy);
-    Animal& operator=(Animal const &animal_to_copy);
-    virtual ~Animal( void );
-
-    std::string getType( void ) const;
-    virtual void makeSound( void ) const;
+    Animal(void);
+	Animal(const Animal& rhs);
+	virtual ~Animal(void);
+	Animal& operator=(const Animal& rhs);
+	
+	virtual void makeSound(void) const;
+	std::string getType() const;
+	void setType(std::string type);
 };
 
 #endif

@@ -6,33 +6,32 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 20:52:48 by mvavasso          #+#    #+#             */
-/*   Updated: 2024/05/09 21:26:18 by mvavasso         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:00:23 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "../includes/Dog.hpp"
 
-Dog::Dog( void ) : Animal("Dog")
-{ 
-	std::cout << "Dog default constructor called" << std::endl; 
-}
+Dog::Dog() : Animal() {
+	setType("Dog");
+	std::cout << GREEN << type << " constructor called" << RESET << std::endl;
+};
 
-Dog::Dog(Dog const &dog_to_copy) : Animal(dog_to_copy.getType())
-{
-	*this = dog_to_copy;
-}
+Dog::Dog(const Dog& rhs){
+	std::cout << YELLOW << type << " copied" << RESET << std::endl;
+	*this = rhs;
+};
 
-Dog& Dog::operator=(Dog const &Dog_to_copy)
-{
-	if (this == &Dog_to_copy)
-		return (*this);
-	return (*this);
-}
+Dog::~Dog(void){
+	std::cout << RED << type << " destroyed" << RESET << std::endl;
+};
 
-Dog::~Dog( void )
-{ 
-	std::cout << "Dog default destructor called" << std::endl;
-}
+Dog& Dog::operator=(const Dog& rhs) {
+	if(this != &rhs) {
+		type = rhs.type;
+	}
+	return *this;
+};
 
 void Dog::makeSound( void ) const
 {
